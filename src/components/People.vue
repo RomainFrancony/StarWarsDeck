@@ -49,7 +49,7 @@
 </template>
 
 <script>
-    import {TimelineMax} from 'gsap';
+    import {flipCard} from '@/utils/Animations';
 
     export default {
         name: 'people',
@@ -101,22 +101,10 @@
             }
         },
         mounted() {
-            const timeline = new TimelineMax();
-
+            flipCard(this.$refs.card);
             this.getSpecies();
             this.getHomeworld();
-            timeline.to(this.$refs.card,1.6, {
-                transform: '0deg',
-                ease: Power4.easeOut,
-            });
-
-            timeline.to(this.$refs.card, 0.8, {
-                scale: 1.1,
-            },'-=1.6');
-            timeline.to(this.$refs.card, 0.8, {
-                scale: 1.0,
-            },'-=1.2');
-        }
+        },
     };
 </script>
 
