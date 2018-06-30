@@ -1,3 +1,8 @@
+@import 'fonts';
+@import 'transitions';
+@import 'variables';
+@import 'cards';
+
 * {
   box-sizing: content-box;
 }
@@ -5,7 +10,8 @@
 html, body {
   margin: 0;
   padding: 0;
+  background-color: $color-gray-ultralight;
   -webkit-font-smoothing: antialiased;
-  background-color: #818181;
-  color: white;
+  font-family: "Brandon Grotesque", sans-serif;
+  font-size: 18px;
 }

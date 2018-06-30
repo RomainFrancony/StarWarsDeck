@@ -134,6 +134,5 @@
         flex-basis: 100%;
         flex-shrink: 0;
         width: 100%;
-        background-color: #333333;
     }
 </style>
