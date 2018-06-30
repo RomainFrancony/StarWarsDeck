@@ -1,6 +1,6 @@
 <template>
     <div class="people">
-        <div class="card">
+        <div class="card" ref="card">
             <header class="card__header">
                 <h4 class="card__title">{{ people.name }}</h4>
                 <p class="card__subtitle">{{ people.birth_year }}</p>
@@ -49,6 +49,8 @@
 </template>
 
 <script>
+    import {TimelineMax} from 'gsap';
+
     export default {
         name: 'people',
         props: {
@@ -63,7 +65,7 @@
                 homeworld: null,
             };
         },
-        computed : {
+        computed: {
             readableSpecies() {
                 if (this.species.length < this.people.species.length) {
                     return '';
@@ -74,7 +76,7 @@
                     str += specie.name;
 
                     if (index < this.species.length - 1) {
-                        str += ', '
+                        str += ', ';
                     }
                 });
 
@@ -89,7 +91,7 @@
                 this.people.species.forEach((specie) => {
                     this.$http.get(specie).then((response) => {
                         this.species.push(response.data);
-                    })
+                    });
                 });
             },
             getHomeworld() {
@@ -99,8 +101,21 @@
             }
         },
         mounted() {
+            const timeline = new TimelineMax();
+
             this.getSpecies();
             this.getHomeworld();
+            timeline.to(this.$refs.card,1.6, {
+                transform: '0deg',
+                ease: Power4.easeOut,
+            });
+
+            timeline.to(this.$refs.card, 0.8, {
+                scale: 1.1,
+            },'-=1.6');
+            timeline.to(this.$refs.card, 0.8, {
+                scale: 1.0,
+            },'-=1.2');
         }
     };
 </script>
@@ -110,5 +125,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        padding: 50px;
     }
 </style>
