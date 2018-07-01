@@ -48,6 +48,11 @@
             getResourceResults() {
                 this.$http.get(`${this.$route.params.resource}`).then((response) => {
                     this.resourceResults = response.data.results;
+
+                    // Sort films
+                    if (this.$route.params.resource === 'films') {
+                        this.resourceResults.sort((a,b) => a.episode_id > b.episode_id);
+                    }
                     this.next = response.data.next || '';
                     this.prev = response.data.previous || '';
                     this.loading = false;
@@ -73,6 +78,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        position: absolute;
+        transition: all 0.3s ease-out;
+        width: 100%;
     }
 
 

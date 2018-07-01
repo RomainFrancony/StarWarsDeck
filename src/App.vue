@@ -2,7 +2,9 @@
     <div id="app">
         <toolbar/>
         <main class="app__content">
-            <router-view></router-view>
+            <transition :name="transitionName">
+            <router-view :key="$route.fullPath"></router-view>
+            </transition>
         </main>
     </div>
 </template>
@@ -12,7 +14,17 @@
 
     export default {
         name: 'app',
-        components: {Toolbar}
+        components: {Toolbar},
+        data() {
+            return {
+                transitionName: '',
+            };
+        },
+        watch: {
+            '$route' (to, from) {
+                this.transitionName = to.params.resource < from.params.resource ? 'slideUp' : 'slideDown';
+            },
+        }
     };
 </script>
 
@@ -24,7 +36,7 @@
     }
 
     .app__content {
-        padding-top: 52px;
+        position: relative;
         box-sizing: border-box;
     }
 </style>

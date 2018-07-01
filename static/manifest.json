@@ -1,6 +1,6 @@
 {
-  "name": "vue-star-wars",
-  "short_name": "Vue Star Wars",
+  "name": "Star Wars Deck",
+  "short_name": "SW Deck",
   "icons": [
     {
       "src": "/static/img/icons/android-chrome-192x192.png",
