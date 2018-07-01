@@ -1,6 +1,7 @@
 <template>
     <div class="starships">
         <div class="card" ref="card">
+            <div class="card__border"></div>
             <header class="card__header">
                 <h4 class="card__title">{{ starships.name }}</h4>
                 <p class="card__subtitle">{{ starships.manufacturer }}</p>

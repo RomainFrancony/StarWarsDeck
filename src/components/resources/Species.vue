@@ -1,11 +1,10 @@
 <template>
-    <div class="planets">
+    <div class="species">
         <div class="card" ref="card">
+            <div class="card__border"></div>
             <header class="card__header">
-                <h4 class="card__title">{{ planets.name }}</h4>
-                <p class="card__subtitle">{{ planets.terrain }}</p>
+                <h4 class="card__title">{{ species.name }}</h4>
             </header>
-
         </div>
     </div>
 </template>
@@ -14,9 +13,9 @@
     import {flipCard} from '@/utils/Animations';
 
     export default {
-        name: 'planets',
+        name: 'Species',
         props: {
-            planets: {
+            species: {
                 required: true,
                 type: Object,
             },

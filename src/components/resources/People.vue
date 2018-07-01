@@ -1,6 +1,7 @@
 <template>
     <div class="people">
         <div class="card" ref="card">
+            <div class="card__border"></div>
             <header class="card__header">
                 <h4 class="card__title">{{ people.name }}</h4>
                 <p class="card__subtitle">{{ people.birth_year }}</p>
@@ -108,11 +109,3 @@
     };
 </script>
 
-<style lang="scss">
-    .people {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 50px;
-    }
-</style>

@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <toolbar/>
-        <main>
+        <main class="app__content">
             <router-view></router-view>
         </main>
     </div>
@@ -17,3 +17,14 @@
 </script>
 
 <style src="@/styles/style.scss" lang="scss"></style>
+<style lang="scss">
+
+    #app, .app__content {
+        height: 100%;
+    }
+
+    .app__content {
+        padding-top: 52px;
+        box-sizing: border-box;
+    }
+</style>
