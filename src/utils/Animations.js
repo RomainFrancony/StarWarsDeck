@@ -1,14 +1,15 @@
-import {TimelineMax} from 'gsap';
+import {TimelineMax, TweenMax} from 'gsap';
 
-export const flipCard = (el) => {
+export const flipCard = (el, rotation) => {
     return new Promise(resolve => {
+        TweenMax.killTweensOf(el);
         const timeline = new TimelineMax({
             onComplete: () => {
                 resolve();
             },
         });
         timeline.to(el,1.6, {
-            transform: '0deg',
+            rotationY: rotation,
             ease: Power4.easeOut,
         });
         timeline.to(el, 0.8, {

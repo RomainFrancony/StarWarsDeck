@@ -35,17 +35,6 @@
                 </transition>
             </p>
         </div>
-        <!--<p>{{ people.birth_year }}</p>
-        <p>{{ people.eye_color }}</p>
-        <p>{{ people.gender }}</p>
-        <p>{{ people.hair_color }}</p>
-        <p>{{ people.height }}</p>
-        <p>{{ people.homeworld }}</p>
-        <p>{{ people.mass }}</p>
-        <p>{{ people.skin_color }}</p>
-        <p>{{ people.species }}</p>
-        <p>{{ people.starships }}</p>
-        <p>{{ people.vehicles }}</p>-->
     </div>
 </template>
 
@@ -58,6 +47,11 @@
             people: {
                 required: true,
                 type: Object,
+            },
+            flipOnMounted: {
+                required: false,
+                default: false,
+                type: Boolean,
             },
         },
         data() {
@@ -102,9 +96,11 @@
             }
         },
         mounted() {
-            flipCard(this.$refs.card);
             this.getSpecies();
             this.getHomeworld();
+            if (this.flipOnMounted) {
+                flipCard(this.$refs.card, 0);
+            }
         },
     };
 </script>

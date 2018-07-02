@@ -34,9 +34,16 @@
                 required: true,
                 type: Object,
             },
+            flipOnMounted: {
+                required: false,
+                default: false,
+                type: Boolean,
+            },
         },
         mounted() {
-            flipCard(this.$refs.card);
+            if (this.flipOnMounted) {
+                flipCard(this.$refs.card, 0);
+            }
         },
     };
 </script>
