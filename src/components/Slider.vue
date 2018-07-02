@@ -51,6 +51,9 @@
             getSlidesContainerElement() {
                 return this.$refs.slides;
             },
+            getCurrentSlideIndex() {
+              return this.selectedIndex;
+            },
 
             /*
              * Interaction
