@@ -1,7 +1,7 @@
 <template>
     <section class="resource">
         <div class="card" v-if="loading"></div>
-        <slider v-else :slides="resourceResults" @Slider:Slide="onSlide">
+        <slider v-else :slides="resourceResults" @Slider:Slide="onSlide" ref="slider">
             <template slot-scope="slide">
                 <component :is="$route.params.resource"
                            :people="slide.slide"
@@ -41,23 +41,23 @@
         data() {
             return {
                 loading: true,
+                loadingMore: true,
                 next: '',
-                prev: '',
                 resourceResults: [],
             };
         },
         methods: {
-            getResourceResults() {
-                this.$http.get(`${this.$route.params.resource}`).then((response) => {
-                    this.resourceResults = response.data.results;
+            getResourceResults(url) {
+                this.$http.get(url).then((response) => {
+                    this.resourceResults.push(...response.data.results);
 
                     // Sort films
                     if (this.$route.params.resource === 'films') {
                         this.resourceResults.sort((a, b) => a.episode_id > b.episode_id);
                     }
                     this.next = response.data.next || '';
-                    this.prev = response.data.previous || '';
                     this.loading = false;
+                    this.loadingMore = false;
                 }, (e) => {
                     console.log(e);
                 });
@@ -65,15 +65,23 @@
             onSlide(slides, delta, oldSlide, newSlide) {
                 flipCard(newSlide.querySelector('.card'), 0);
                 flipCard(oldSlide.querySelector('.card'), 180);
+                this.checkLoadMore();
             },
+            checkLoadMore() {
+                if (this.next && !this.loadingMore && this.$refs.slider.getCurrentSlideIndex() + 5 > this.resourceResults.length) {
+                    this.loadingMore = true;
+                    this.getResourceResults(this.next);
+                }
+            }
         },
         beforeRouteUpdate(to, from, next) {
             next();
             this.loading = true;
-            this.getResourceResults();
+            this.loadingMore = true;
+            this.getResourceResults(this.$route.params.resource);
         },
         mounted() {
-            this.getResourceResults();
+            this.getResourceResults(this.$route.params.resource);
         },
     };
 </script>
