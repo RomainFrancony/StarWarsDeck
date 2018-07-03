@@ -13,6 +13,16 @@ PWA Features :
 - ***Cache*** : all assets (CSS, JS) are cached so the application is fastest and it will still load even without network
 - ***Offline usage*** : all request to the API are cached which mean you can still use the application without network
 
+## PWA features demo
+
+1. Go to the [Live Demo](https://starwarsdeck-hilfhzeoec.now.sh) with your Android smartphone on Chrome
+2. Click on the three dot on the right side of the address bar in order to open Chrome option
+3. Click "Add to homescreen", this will add the website to your applications
+4. Launch the application
+5. Go to any page of the app in order to cache it
+6. Disconnect from internet and relaunch the app
+7. The app is still working, the pages not cached will display a message about the network problem
+
 ## Installation
 
 ``` bash
