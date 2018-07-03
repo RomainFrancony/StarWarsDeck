@@ -28,8 +28,8 @@
     };
 </script>
 
-<style src="@/styles/style.scss" lang="scss"></style>
 <style lang="scss">
+    @import '~@/styles/style.scss';
 
     #app, .app__content {
         height: 100%;

@@ -1,6 +1,15 @@
 <template>
     <section class="resource">
-        <div class="card" v-if="loading"></div>
+        <!-- Card displayed while loading and flipped if no network -->
+        <div class="card" v-if="loading" ref="loadingCard">
+            <div class="card__border"></div>
+            <header class="card__header">
+                <h4 class="card__title">No network</h4>
+                <p class="card__subtitle">We couldn't connect to the Imperial Database System, please try again
+                    later.</p>
+            </header>
+            <p class="noNetwork" v-html="require('@/assets/images/icons/ic_no_network.svg')"></p>
+        </div>
         <slider v-else :slides="resourceResults" @Slider:Slide="onSlide" ref="slider">
             <template slot-scope="slide">
                 <component :is="$route.params.resource"
@@ -48,7 +57,7 @@
         },
         methods: {
             getResourceResults(url) {
-                this.$http.get(url).then((response) => {
+                return this.$http.get(url).then((response) => {
                     this.resourceResults.push(...response.data.results);
 
                     // Sort films
@@ -58,8 +67,6 @@
                     this.next = response.data.next || '';
                     this.loading = false;
                     this.loadingMore = false;
-                }, (e) => {
-                    console.log(e);
                 });
             },
             onSlide(slides, delta, oldSlide, newSlide) {
@@ -70,7 +77,10 @@
             checkLoadMore() {
                 if (this.next && !this.loadingMore && this.$refs.slider.getCurrentSlideIndex() + 5 > this.resourceResults.length) {
                     this.loadingMore = true;
-                    this.getResourceResults(this.next);
+                    // Catch the error but don't do anything (since it's probably a network
+                    // error and we already have some data so no need to bother the user we that information)
+                    this.getResourceResults(this.next).catch((err) => {
+                    });
                 }
             }
         },
@@ -78,10 +88,16 @@
             next();
             this.loading = true;
             this.loadingMore = true;
-            this.getResourceResults(this.$route.params.resource);
+            // Get the resource or display the no network card
+            this.getResourceResults(this.$route.params.resource).catch(() => {
+                flipCard(this.$refs.loadingCard, 0);
+            });
         },
         mounted() {
-            this.getResourceResults(this.$route.params.resource);
+            // Get the resource or display the no network card
+            this.getResourceResults(this.$route.params.resource).catch(() => {
+                flipCard(this.$refs.loadingCard, 0);
+            });
         },
     };
 </script>

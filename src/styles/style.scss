@@ -17,3 +17,14 @@ html, body {
   font-size: 18px;
   overflow: hidden;
 }
+
+.noNetwork {
+  margin: 40px 0 0;
+  text-align: center;
+  height: 120px;
+  opacity: 0.4;
+
+  svg {
+    height: 100%;
+  }
+}
