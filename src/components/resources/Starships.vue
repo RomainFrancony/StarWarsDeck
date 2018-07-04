@@ -10,15 +10,26 @@
                 <span class="cardInfo__label">Model:</span>
                 <span class="cardInfo__value">{{ starships.model }}</span>
             </p>
-
             <p class="cardInfo">
                 <span class="cardInfo__label">Length:</span>
-                <span class="cardInfo__value">{{ starships.length }} meters</span>
+                <span class="cardInfo__value">{{ starships.length | humanReadableNumber }} meters</span>
             </p>
-
+            <p class="cardInfo">
+                <span class="cardInfo__label">Starship class:</span>
+                <span class="cardInfo__value">{{ starships.starship_class }}</span>
+            </p>
             <p class="cardInfo">
                 <span class="cardInfo__label">Cost:</span>
-                <span class="cardInfo__value">{{ starships.cost_in_credits }} credits</span>
+                <span class="cardInfo__value">{{ starships.cost_in_credits | humanReadableNumber }} credits</span>
+            </p>
+            <p class="cardInfo">
+                <span class="cardInfo__label">Cargo capacity:</span>
+                <span class="cardInfo__value">{{ starships.cargo_capacity | humanReadableNumber }} kg</span>
+            </p>
+            <p class="cardInfo">
+                <span class="cardInfo__label">Capacity:</span>
+                <span class="cardInfo__value">{{ starships.crew | humanReadableNumber }} -
+                    {{ (Number(starships.passengers) + Number(starships.crew)) | humanReadableNumber }} person(s)</span>
             </p>
         </div>
     </div>

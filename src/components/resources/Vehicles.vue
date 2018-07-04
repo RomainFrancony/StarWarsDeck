@@ -6,6 +6,31 @@
                 <h4 class="card__title">{{ vehicles.name }}</h4>
                 <p class="card__subtitle">{{ vehicles.manufacturer }}</p>
             </header>
+            <p class="cardInfo">
+                <span class="cardInfo__label">Model:</span>
+                <span class="cardInfo__value">{{ vehicles.model }}</span>
+            </p>
+            <p class="cardInfo">
+                <span class="cardInfo__label">Length:</span>
+                <span class="cardInfo__value">{{ vehicles.length | humanReadableNumber }} meters</span>
+            </p>
+            <p class="cardInfo">
+                <span class="cardInfo__label">Vehicle class:</span>
+                <span class="cardInfo__value">{{ vehicles.vehicle_class }}</span>
+            </p>
+            <p class="cardInfo">
+                <span class="cardInfo__label">Cost:</span>
+                <span class="cardInfo__value">{{ vehicles.cost_in_credits | humanReadableNumber }} credits</span>
+            </p>
+            <p class="cardInfo">
+                <span class="cardInfo__label">Cargo capacity:</span>
+                <span class="cardInfo__value">{{ vehicles.cargo_capacity | humanReadableNumber }} kg</span>
+            </p>
+            <p class="cardInfo">
+                <span class="cardInfo__label">Capacity:</span>
+                <span class="cardInfo__value">{{ vehicles.crew | humanReadableNumber }} -
+                    {{ (Number(vehicles.passengers) + Number(vehicles.crew)) | humanReadableNumber }} person(s)</span>
+            </p>
         </div>
     </div>
 </template>

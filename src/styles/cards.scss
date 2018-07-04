@@ -61,41 +61,47 @@
 
 // Header
 .card__header {
-  margin-bottom: 12px;
+  margin-bottom: 24px;
 }
 
-// Title
+// Titles
 .card__title {
   margin: 0;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 26px;
   color: $color-dark;
 }
 
 .card__subtitle {
   color: $color-gray-dark;
   margin: 0;
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 18px;
 }
 
+// Card info
 .cardInfo {
-  display: flex;
-  align-items: center;
+  display: block;
   margin: 0;
   line-height: 20px;
+
+  + .cardInfo {
+    margin-top: 5px;
+  }
 }
 
 .cardInfo__label {
-  display: block;
+  display: inline;
   color: $color-gray-dark;
-  font-size: 14px;
+  font-weight: 600;
+  font-size: 16px;
   margin-right: 6px;
 }
 
 .cardInfo__value {
-  display: block;
+  display: inline;
   color: $color-dark;
-  font-size: 14px;
+  font-size: 16px;
 
   &.cardInfo__value--loading {
     overflow: hidden;

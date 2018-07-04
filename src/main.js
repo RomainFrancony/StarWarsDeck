@@ -6,6 +6,7 @@ import { VueHammer } from 'vue2-hammer';
 import CONST from '@/utils/Const';
 import LazyImage from '@/components/LazyImage';
 import store from '@/store/index';
+import '@/plugins/Filters';
 
 Vue.use(VueResource);
 Vue.http.options.root = CONST.apiUrl;

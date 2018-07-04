@@ -6,6 +6,14 @@
                 <h4 class="card__title">{{ films.title }}</h4>
                 <p class="card__subtitle">{{ films.release_date.replace(/-/g, '/') }}</p>
             </header>
+            <p class="cardInfo">
+                <span class="cardInfo__label">Director:</span>
+                <span class="cardInfo__value">{{ films.director  }}</span>
+            </p>
+            <p class="cardInfo">
+                <span class="cardInfo__label">Producer:</span>
+                <span class="cardInfo__value">{{ films.producer  }}</span>
+            </p>
         </div>
     </div>
 </template>

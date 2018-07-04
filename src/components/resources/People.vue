@@ -6,14 +6,13 @@
                 <h4 class="card__title">{{ people.name }}</h4>
                 <p class="card__subtitle">{{ people.birth_year }}</p>
             </header>
-
             <p class="cardInfo">
                 <span class="cardInfo__label">Height:</span>
-                <span class="cardInfo__value">{{ people.height }}</span>
+                <span class="cardInfo__value">{{ people.height | humanReadableNumber }} cm</span>
             </p>
             <p class="cardInfo">
                 <span class="cardInfo__label">Mass:</span>
-                <span class="cardInfo__value">{{ people.mass }}</span>
+                <span class="cardInfo__value">{{ people.mass | humanReadableNumber }} kg</span>
             </p>
             <p class="cardInfo">
                 <span class="cardInfo__label">Skin Color:</span>
@@ -26,7 +25,6 @@
                     <span key="loader" class="cardInfo__value cardInfo__value--loading" v-else></span>
                 </transition>
             </p>
-
             <p class="cardInfo">
                 <span class="cardInfo__label">Homeworld:</span>
                 <transition name="fade" mode="out-in">
