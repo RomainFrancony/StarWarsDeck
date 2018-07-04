@@ -25,6 +25,8 @@ html, body {
   opacity: 0.4;
 
   svg {
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
     height: 100%;
   }
 }
