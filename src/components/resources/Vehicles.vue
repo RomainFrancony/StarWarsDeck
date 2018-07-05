@@ -20,7 +20,8 @@
             </p>
             <p class="cardInfo">
                 <span class="cardInfo__label">Cost:</span>
-                <span class="cardInfo__value">{{ vehicles.cost_in_credits | humanReadableNumber }} credits</span>
+                <span class="cardInfo__value">{{ vehicles.cost_in_credits | humanReadableNumber }}
+                    <span class="credit" v-html="require('@/assets/images/icons/ic_credit.svg')"></span></span>
             </p>
             <p class="cardInfo">
                 <span class="cardInfo__label">Cargo capacity:</span>

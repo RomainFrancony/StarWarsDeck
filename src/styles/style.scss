@@ -30,3 +30,15 @@ html, body {
     height: 100%;
   }
 }
+
+.credit {
+  width: 20px;
+  height: 20px;
+  line-height: 0;
+  display: inline-block;
+  vertical-align: sub;
+  opacity: 0.8;
+  svg {
+    height: 100%;
+  }
+}
