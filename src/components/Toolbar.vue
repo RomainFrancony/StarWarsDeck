@@ -1,6 +1,6 @@
 <template>
     <div class="toolbar" :class="{'toolbar--open' : drawerOpen}" @click="drawerOpen = false">
-        <button class="hamburger" @click.stop="drawerOpen = !drawerOpen">
+        <button aria-label="Menu" class="hamburger" @click.stop="drawerOpen = !drawerOpen">
             <div>
                 <span></span>
                 <span></span>
