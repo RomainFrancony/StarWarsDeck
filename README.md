@@ -2,7 +2,7 @@
 
 > Vue JS PWA using the SWAPI API
 
-[Live Demo](https://starwarsdeck-ucmvexadiw.now.sh/)
+[Live Demo](https://star-wars-deck.now.sh/)
 
 ## Features
 
@@ -15,7 +15,7 @@ PWA Features :
 
 ## PWA features demo
 
-1. Go to the [Live Demo](https://starwarsdeck-ucmvexadiw.now.sh/) with your Android smartphone on Chrome
+1. Go to the [Live Demo](https://star-wars-deck.now.sh/) with your Android smartphone on Chrome
 2. Click on the three dot on the right side of the address bar in order to open Chrome option
 3. Click "Add to homescreen", this will add the website to your applications
 4. Launch the application
