@@ -23,10 +23,10 @@ html, body {
   text-align: center;
   height: 120px;
   opacity: 0.4;
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
 
   svg {
-    -webkit-transform-style: preserve-3d;
-    -webkit-backface-visibility: hidden;
     height: 100%;
   }
 }
