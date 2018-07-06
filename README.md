@@ -2,7 +2,7 @@
 
 > Vue JS PWA using the SWAPI API
 
-[Live Demo](https://starwarsdeck-hilfhzeoec.now.sh)
+[Live Demo](https://starwarsdeck-ucmvexadiw.now.sh/)
 
 ## Features
 
@@ -15,11 +15,11 @@ PWA Features :
 
 ## PWA features demo
 
-1. Go to the [Live Demo](https://starwarsdeck-hilfhzeoec.now.sh) with your Android smartphone on Chrome
+1. Go to the [Live Demo](https://starwarsdeck-ucmvexadiw.now.sh/) with your Android smartphone on Chrome
 2. Click on the three dot on the right side of the address bar in order to open Chrome option
 3. Click "Add to homescreen", this will add the website to your applications
 4. Launch the application
-5. Go to any page of the app in order to cache it
+5. Go to any page of the app in order to cache it (wait a few seconds for the service worker to be active)
 6. Disconnect from internet and relaunch the app
 7. The app is still working, the pages not cached will display a message about the network problem
 
